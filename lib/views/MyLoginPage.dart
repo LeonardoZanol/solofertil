@@ -10,8 +10,6 @@ class MyLoginPage extends StatefulWidget {
 }
 
 class _MyLoginPageState extends State<MyLoginPage> {
-  // final colorScheme = Theme.of(context).colorScheme;
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -23,7 +21,7 @@ class _MyLoginPageState extends State<MyLoginPage> {
     return Column(
       children: [
         _createImageHeader(),
-        _createContainerLogin()
+        _createContainerLogin(),
       ],
     );
   }
@@ -50,15 +48,40 @@ class _MyLoginPageState extends State<MyLoginPage> {
       child: Container(
         color: Colors.white,
         child: Padding(
-          padding: const EdgeInsets.all(10.0),
+          padding: const EdgeInsets.all(20.0),
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
             children: [
               _createTextField(LABEL_USER, false),
               const SizedBox(height: 15),
               _createTextField(LABEL_PASSWD, true),
-              const SizedBox(height: 25),
-              
+
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  GestureDetector(
+                      onTap: () {
+                        Navigator.pushNamed(context, '/register');
+                      },
+                      child: const Text('Cadastrar-me', style: TextStyle(
+                        color: Colors.blue,
+                        decoration: TextDecoration.underline
+                    )),
+                  ),
+
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.pushNamed(context, '/forgotpasswd');
+                    },
+                    child: const Text('Esqueceu a Senha?', style: TextStyle(
+                      color: Colors.blue,
+                      decoration: TextDecoration.underline
+                    )),
+                  )
+                ],
+              ),
+
+              const SizedBox(height: 10),
+
               ElevatedButton(
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Theme.of(context).colorScheme.primary,
