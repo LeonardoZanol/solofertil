@@ -15,42 +15,7 @@ class _MyDashboardPageState extends State<MyDashboardPage> {
   final TextEditingController _dateController = TextEditingController();
 
   final List<Map<String, dynamic>> _reports = [
-    {
-      "title": "Ajuste o pH",
-      "pH Atual": 5.2,
-      "pH Ideal": 6.5,
-      "Quantidade de Calcário": "2.5 t/ha"
-    },
-    {
-      "title": "Fertilidade do Solo",
-      "Potássio Atual": "0.15 cmolc/kg",
-      "Potássio Ideal": "0.35 cmolc/kg",
-      "Quantidade de K2o": "50 kg/ha"
-    },
-    {
-      "title": "Drenagem",
-      "infiltracao_atual": "10 mm/h",
-      "infiltracao_ideal": "25 mm/h",
-      "melhoria_drenagem": "Adição de 30% de areia ao solo"
-    },
-    {
-      "title": "Rotações de Cultura",
-      "cultura_atual": "Milho",
-      "proxima_cultura": "Soja",
-      "beneficio_esperado": "Redução de 20% em incidência de pragas"
-    },
-    {
-      "title": "Controle de Pragas",
-      "praga_identificada": "Lagarta-do-cartucho",
-      "metodo_controle": "Aplicação de Bacillus thuringiensis",
-      "eficacia": "80% de controle esperado"
-    },
-    {
-      "title": "Matéria Orgânica",
-      "materia_organica_atual": "2.0%",
-      "materia_organica_ideal": "3.5%",
-      "quantidade_composto": "10 t/ha"
-    }
+    
   ];
 
   String? _selectedReport;

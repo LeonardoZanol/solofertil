@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:solofertil/core/constants.dart';
 
 class MyForgotPasswordPage extends StatefulWidget {
   const MyForgotPasswordPage({super.key});

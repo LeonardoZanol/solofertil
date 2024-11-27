@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:solofertil/views/MyCalcCtcPage.dart';
+import 'package:solofertil/views/MyCalcDensidadePage.dart';
+import 'package:solofertil/views/MyCalcPhSoloPage.dart';
 import 'package:solofertil/views/MyCalculatorPage.dart';
 import 'package:solofertil/views/MyDashboardPage.dart';
 import 'package:solofertil/views/MyTipsPage.dart';
@@ -34,7 +37,7 @@ class _MyHomePageState extends State<MyHomePage> {
         children: [
           MyDashboardPage(),
           MyTipsPage(),
-          MyCalculatorPage()
+          MyCalculatorPage(),
         ],
         onPageChanged: setActualyPage,
       ),
