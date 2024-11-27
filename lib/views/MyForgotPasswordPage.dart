@@ -28,6 +28,7 @@ class _MyForgotPasswordPageState extends State<MyForgotPasswordPage> {
         color: Theme.of(context).colorScheme.primary,
         child: Center(
           child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Image.asset(
                 'assets/images/solofertillogo.png',
@@ -36,7 +37,7 @@ class _MyForgotPasswordPageState extends State<MyForgotPasswordPage> {
               ),
                const Text('Recuperação de Senha', style: TextStyle(
                 color: Colors.white,
-                fontSize: 50,
+                fontSize: 30,
                 fontWeight: FontWeight.bold
               ))
             ],

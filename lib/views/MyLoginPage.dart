@@ -32,11 +32,21 @@ class _MyLoginPageState extends State<MyLoginPage> {
       child: Container(
         color: Theme.of(context).colorScheme.primary,
         child: Center(
-          child: Image.asset(
-            'assets/images/solofertillogo.png',
-            width: 200,
-            height: 200,
-          ),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Image.asset(
+                'assets/images/solofertillogo.png',
+                width: 200,
+                height: 200,
+              ),
+              const Text('SoloFértil', style: TextStyle(
+                fontWeight: FontWeight.bold,
+                color: Colors.white,
+                fontSize: 30
+              ))
+            ],
+          )
         ),
       ),
     );

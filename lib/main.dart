@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:solofertil/views/MyDashboardPage.dart';
 import 'package:solofertil/views/MyForgotPasswordPage.dart';
 import 'package:solofertil/views/MyHomePage.dart';
 
 import 'package:solofertil/core/constants.dart';
-import 'package:solofertil/views/MyLoginPage.dart';
 import 'package:solofertil/views/MyRegisterPage.dart';
 
 void main() {
@@ -21,7 +21,8 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.lightGreen),
         useMaterial3: true
       ),
-      home: const MyLoginPage(),
+      debugShowCheckedModeBanner: false,
+      home: const MyDashboardPage(),
       initialRoute: '/',
       routes: {
         '/home': (context) => const MyHomePage(),
