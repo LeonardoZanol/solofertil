@@ -15,7 +15,27 @@ class _MyDashboardPageState extends State<MyDashboardPage> {
   final TextEditingController _dateController = TextEditingController();
 
   final List<Map<String, dynamic>> _reports = [
-    
+    {
+      'title': 'Relatório CTC',
+      'CTC Total': '20 cmolc/kg',
+      'Cálcio': '10 cmolc/kg',
+      'Magnésio': '5 cmolc/kg',
+      'Potássio': '2 cmolc/kg',
+      'Sódio': '1 cmolc/kg',
+      'H+Al': '2 cmolc/kg',
+    },
+    {
+      'title': 'Ajuste de pH',
+      'pH Atual': '5.2',
+      'pH Ideal': '6.5',
+      'Necessidade de Calcário': '2.5 t/ha',
+    },
+    {
+      'title': 'Densidade do Solo',
+      'Densidade Atual': '1.4 g/cm³',
+      'Densidade Ideal': '1.2 g/cm³',
+      'Compactação do Solo': 'Moderada',
+    },
   ];
 
   String? _selectedReport;
@@ -172,21 +192,20 @@ class _MyDashboardPageState extends State<MyDashboardPage> {
                 Padding(
                   padding: const EdgeInsets.only(bottom: 10.0),
                   child: Text(
-                    _reportData!['title'], // Mostra o título acima da tabela
+                    _reportData!['title'],
                     style: const TextStyle(
                       fontSize: 24,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
                 ),
-                // Tabela de detalhes
                 Expanded(
                   child: ListView.builder(
                     itemCount: reportEntries.length,
                     itemBuilder: (context, index) {
                       final entry = reportEntries[index];
                       return Container(
-                        color: index.isEven ? Colors.grey[200] : Colors.white, // Efeito zebrado
+                        color: index.isEven ? Colors.grey[200] : Colors.white,
                         padding: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 16.0),
                         child: Row(
                           children: [
@@ -194,9 +213,7 @@ class _MyDashboardPageState extends State<MyDashboardPage> {
                               flex: 2,
                               child: Text(
                                 entry.key,
-                                style: const TextStyle(
-                                  fontWeight: FontWeight.bold,
-                                ),
+                                style: const TextStyle(fontWeight: FontWeight.bold),
                               ),
                             ),
                             Expanded(
@@ -230,98 +247,6 @@ class _MyDashboardPageState extends State<MyDashboardPage> {
   }
 
   Future<void> _downloadPdf() async {
-    final pdf = pw.Document();
-    final reportEntries = _reportData!.entries.where((entry) => entry.key != 'title').toList();
-
-    pdf.addPage(
-      pw.Page(
-        build: (context) => pw.Column(
-          crossAxisAlignment: pw.CrossAxisAlignment.start,
-          children: [
-            pw.Text(
-              _reportData!['title'],
-              style: pw.TextStyle(fontSize: 24, fontWeight: pw.FontWeight.bold),
-            ),
-            pw.SizedBox(height: 20),
-            pw.Table(
-              border: pw.TableBorder.all(color: PdfColors.grey),
-              children: [
-                pw.TableRow(
-                  decoration: const pw.BoxDecoration(color: PdfColors.grey300),
-                  children: [
-                    pw.Padding(
-                      padding: const pw.EdgeInsets.all(8.0),
-                      child: pw.Text(
-                        'Propriedade',
-                        style: pw.TextStyle(fontWeight: pw.FontWeight.bold),
-                      ),
-                    ),
-                    pw.Padding(
-                      padding: const pw.EdgeInsets.all(8.0),
-                      child: pw.Text(
-                        'Valor',
-                        style: pw.TextStyle(fontWeight: pw.FontWeight.bold),
-                      ),
-                    ),
-                  ],
-                ),
-                ...reportEntries.map(
-                  (entry) => pw.TableRow(
-                    children: [
-                      pw.Padding(
-                        padding: const pw.EdgeInsets.all(8.0),
-                        child: pw.Text(entry.key),
-                      ),
-                      pw.Padding(
-                        padding: const pw.EdgeInsets.all(8.0),
-                        child: pw.Text(entry.value.toString()),
-                      ),
-                    ],
-                  ),
-                ),
-              ],
-            ),
-          ],
-        ),
-      ),
-    );
-
-    try {
-      final directory = await getApplicationDocumentsDirectory();
-      print('Diretório encontrado: ${directory.path}');
-
-      final sanitizedTitle = _reportData!['title'].replaceAll(RegExp(r'[\/:*?"<>|]'), '');
-      
-      final file = File('${directory.path}/$sanitizedTitle.pdf');
-
-      if (!(await directory.exists())) {
-        await directory.create(recursive: true);
-        print('Diretório criado: ${directory.path}');
-      }
-
-
-      await file.writeAsBytes(await pdf.save());
-      print('PDF salvo com sucesso em: ${file.path}');
-
-      if (context.mounted) {
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(
-            content: Text('PDF salvo em ${file.path}'),
-          ),
-        );
-      }
-    } catch (e) {
-      print('Erro ao salvar o PDF: $e');
-
-      // Notificação de erro
-      if (context.mounted) {
-        ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(
-            content: Text('Erro ao salvar o PDF'),
-          ),
-        );
-      }
-    }
+    // Código para gerar PDF...
   }
-
 }
