@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:solofertil/views/MyCalculatorPage.dart';
+import 'package:solofertil/views/MyDashboardPage.dart';
+import 'package:solofertil/views/MyTipsPage.dart';
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key});
@@ -8,9 +11,54 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  int actualyPage = 1;
+  late PageController pc;
+
+  @override
+  void initState() {
+    super.initState();
+    pc = PageController(initialPage: actualyPage);
+  }
+
+  setActualyPage(page) {
+    setState(() {
+      actualyPage = page;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
-    throw UnimplementedError();
+    return Scaffold(
+      body: PageView(
+        controller: pc,
+        children: [
+          MyDashboardPage(),
+          MyTipsPage(),
+          MyCalculatorPage()
+        ],
+        onPageChanged: setActualyPage,
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+        currentIndex:actualyPage,
+        items: [
+          BottomNavigationBarItem(
+            icon: Icon(Icons.dashboard), label: 'Relatórios'
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home), label: 'Home'
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.calculate), label: 'Calculadora'
+          )
+        ],
+        onTap: (page) {
+          pc.animateToPage(
+            page, 
+            duration: const Duration(microseconds: 400), 
+            curve: Curves.ease
+          );
+        },
+      ),
+    );
   }
 }

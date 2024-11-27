@@ -58,11 +58,12 @@ class _MyTipsPageState extends State<MyTipsPage> {
         child: Center(
           child: Text('Guia e Dicas', style: TextStyle(
             color: Colors.white,
-            fontSize: 30,
+            fontSize: 20,
             fontWeight: FontWeight.bold
           )),
         ),
       ),
+      automaticallyImplyLeading: false,
       backgroundColor: Theme.of(context).colorScheme.primary,
     );
   }
@@ -101,16 +102,12 @@ class _MyTipsPageState extends State<MyTipsPage> {
     return Padding(
       padding: const EdgeInsets.all(10.0),
       child: ElevatedButton(
-        style: ElevatedButton.styleFrom(
-          backgroundColor: Theme.of(context).colorScheme.primary
-        ),
         onPressed: () {
           
         }, 
         child: const Text("Saiba Mais", style: TextStyle(
           fontSize: 20,
-          fontWeight: FontWeight.bold,
-          color: Colors.white
+          fontWeight: FontWeight.bold
         )),
       ),
     );

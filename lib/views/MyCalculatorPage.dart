@@ -11,8 +11,22 @@ class MyCalculatorPage extends StatefulWidget {
 class _MyCalculatorPageState extends State<MyCalculatorPage> {
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      
+    return  Scaffold(
+      appBar: _createAppBar(),
+    );
+  }
+
+  AppBar _createAppBar() {
+    return AppBar(
+      title: const Center(
+        child: Text('Calculadora', style: TextStyle(
+          color: Colors.white,
+          fontWeight: FontWeight.bold,
+          fontSize: 20
+        )),
+      ),
+      automaticallyImplyLeading: false,
+      backgroundColor: Theme.of(context).colorScheme.primary,
     );
   }
 }

@@ -28,6 +28,7 @@ class _MyRegisterPageState extends State<MyRegisterPage> {
         color: Theme.of(context).colorScheme.primary,
         child: Center(
           child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Image.asset(
                 'assets/images/solofertillogo.png',
@@ -35,9 +36,9 @@ class _MyRegisterPageState extends State<MyRegisterPage> {
                 height: 200,
               ),
               const Text('Registro', style: TextStyle(
-                color: Colors.white,
-                fontSize: 50,
-                fontWeight: FontWeight.bold
+                  color: Colors.white,
+                  fontSize: 30,
+                  fontWeight: FontWeight.bold
               ))
             ]
           )

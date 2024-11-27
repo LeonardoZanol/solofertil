@@ -35,10 +35,10 @@ class _MyForgotPasswordPageState extends State<MyForgotPasswordPage> {
                 width: 200,
                 height: 200
               ),
-               const Text('Recuperação de Senha', style: TextStyle(
-                color: Colors.white,
-                fontSize: 30,
-                fontWeight: FontWeight.bold
+              const Text('Recuperação de Senha', style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 30,
+                  fontWeight: FontWeight.bold
               ))
             ],
           ),
@@ -56,9 +56,7 @@ class _MyForgotPasswordPageState extends State<MyForgotPasswordPage> {
           padding: const EdgeInsets.all(20.0),
           child: Column(
           children: [
-            _createTextField(LABEL_PASSWD, true),
-            const SizedBox(height: 15),
-            _createTextField('Confirme sua Senha', true),
+            _createTextField('Informe seu E-mail para Recuperação', false),
             const SizedBox(height: 15),
 
             ElevatedButton(
